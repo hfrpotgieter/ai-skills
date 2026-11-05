@@ -1,40 +1,5 @@
 <!doctype html>
-<!--
-  grill-review template. Replace every {{…}} slot; delete these comments in the output.
-
-  Escaping:
-  - Text in HTML (summary, notes, table cells, Mermaid source): escape & < > as &amp; &lt; &gt;.
-  - Patch text inside <script type="text/x-diff">: paste verbatim, except write any "</script" as "<\/script".
-
-  Slot markup:
-
-  {{DECISIONS}}  one row per ledger decision:
-    <tr><td>Q1</td><td>Fetch one seller by ID</td><td>Answer…</td><td>Reason…</td>
-        <td><a href="#file-1">form_cascade.go</a></td></tr>
-    A decision with no code gets <td><em>no code</em></td> in the last cell.
-
-  {{DIAGRAMS}}  one block per structural change:
-    <figure class="pair">
-      <figcaption>One-line caption</figcaption>
-      <div><h4>Before</h4><pre class="mermaid">flowchart TD …</pre></div>
-      <div><h4>After</h4><pre class="mermaid">flowchart TD …</pre></div>
-    </figure>
-
-  {{CHANGES}}  one section per file:
-    <section class="file" id="file-1">
-      <h3>path/to/file.go</h3>
-      <ul class="notes"><li><span class="q">Q1</span> What this hunk does</li></ul>
-      <script type="text/x-diff">diff --git a/path/to/file.go b/path/to/file.go
-      …the file's part of change.patch…</script>
-      <div class="diff"></div>
-    </section>
-
-  {{VERIFICATION}}  one item per command:
-    <li class="pass"><code>go build ./...</code> pass</li>
-    <li class="fail"><code>go test ./api/...</code> fail: one-line reason</li>
-
-  {{OUT_OF_SCOPE}} / {{OPEN_QUESTIONS}}  <li> items; write <li><em>None</em></li> when empty.
--->
+<!-- Filled by fill.py; see its docstring for the review.json format. -->
 <html lang="en">
 <head>
 <meta charset="utf-8">

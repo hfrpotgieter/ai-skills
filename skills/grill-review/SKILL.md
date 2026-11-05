@@ -26,13 +26,15 @@ This is synthesis. The decisions are settled; carry them over as they were agree
 
 4. **Diagrams.** Draw each structural change (calls, queries, data flow, control flow) as a before/after Mermaid pair. A change with no structural effect gets no diagram. Quote node labels (`A["fetchSellers(adminID)"]`) so parentheses and symbols parse.
 
-5. **Write the document** from [`template.html`](template.html) to `$TMPDIR/grill-review/<slug>/review.html`, beside `change.patch`. The template's comments show the markup for each slot. Fill every `{{…}}` slot:
-   - **Summary**: two to four sentences on what changes and why.
-   - **Decisions**: the ledger, each row linking to the file sections that implement it.
-   - **Diagrams**: the before/after pairs, each with a one-line caption.
-   - **Changes**: one section per file: a note per hunk naming its decision, then that file's patch.
-   - **Verification**: commands run, with pass or fail.
-   - **Out of scope** and **open questions**.
-   - **Apply**: the command that applies `change.patch` to the user's checkout.
+5. **Write the document.** Write `$TMPDIR/grill-review/<slug>/review.json` in the format in [`fill.py`](fill.py)'s docstring, then run `python3 <this skill's dir>/fill.py review.json change.patch`. It writes `review.html` beside them. The spec holds:
+   - **summary**: two to four sentences on what changes and why;
+   - **decisions**: the ledger;
+   - **diagrams**: the before/after pairs, each with a one-line caption;
+   - **files**: one per patched file, with a note per hunk naming its decisions;
+   - **verification**: the commands run, with pass or fail;
+   - **out of scope** and **open questions**;
+   - **apply**: the commands that apply `change.patch` to the user's checkout.
+
+   `fill.py` re-checks the step 3 trace and exits 1 with the gaps listed. Fix the draft or the spec and run it again until it writes the file.
 
 6. **Open** the document (`open` on macOS, `xdg-open` on Linux) and give the user its path. Keep the scratch checkout until they decide. On approval, apply `change.patch` to their checkout (`git apply`, or `sl import --no-commit`), run the verification commands there, then remove the scratch checkout.
